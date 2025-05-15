@@ -16,31 +16,44 @@
     }
 
     .container {
-      width: 794px; /* Lebar A4 dalam pixel */
-      height: 1123px; /* Tinggi A4 dalam pixel */
+      position: relative;
+      width: 794px; /* A4 width in pixels */
+      height: 1123px; /* A4 height in pixels */
       margin: auto;
       padding: 20px;
       border-radius: 8px;
       background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       overflow: hidden;
     }
 
-  .profile {
-    width: 128px;
-    height: 128px;
-    justify-content: center;
-  }
-
-    .container img {
+    .container img.background {
       width: 100%;
       height: 100%;
       object-fit: cover;
       user-drag: none;
       -webkit-user-drag: none;
       pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .profile {
+      width: 128px;
+      height: 128px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .profile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%; /* optional: make it circular */
     }
 
     @media print {
@@ -57,7 +70,7 @@
 </head>
 <body>
   <div class="container">
-    <img src="TheCard.png" alt="TheCard A4">
+    <img class="background" src="TheCard.png" alt="TheCard A4">
     <div class="profile">
       <img src="TheProfile.gif" alt="How">
     </div>
